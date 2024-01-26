@@ -2,14 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --dark-rgb: 23 28 28;
+    --darker-rgb: 8 13 7;
+
+    --green: 9 252 8;
+    --blue: 59 130 246;
+    --pink: 231 60 126;
+
+    --background-rgb: 12 12 12;
+    --theme-rgb: var(--green);
+}
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Black File', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 900;
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
+    width: 100vw;
+    height: 100vh;
+}
+
+.grad {
+    background: linear-gradient(
+        rgb(var(--darker-rgb) / 15%) 0%,
+        rgb(var(--darker-rgb) / 75%) 28%,
+        rgb(var(--darker-rgb) / 15%) 56%,
+        rgb(var(--darker-rgb) / 5%) 56%,
+        rgb(var(--darker-rgb) / 5%) 100%
+    );
+    background-size: 100% 7px;
+    animation: pan-lines 25s infinite linear;
+}
+.green {
+    opacity: 0.9;
+    color: rgb(var(--green));
+}
+.shadow {
+    /* opacity: ; */
+    background: radial-gradient(
+        rgb(var(--theme-rgb) / 1%) 20%,
+        rgb(var(--darker-rgb) / 80%) 70%
+    );
+    z-index: 3;
+}
+
+@keyframes pan-lines {
+    from {
+        background-position: 0% 0%;
+    }
+
+    to {
+        background-position: 0% -100%;
+    }
 }
